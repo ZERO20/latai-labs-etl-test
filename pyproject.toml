@@ -1,0 +1,31 @@
+[tool.black]
+line-length = 79
+target-version = ['py312']
+
+# Incluir específicamente nuestros directorios de código
+include = '''
+(
+    ^/etl/.*\.py$
+  | ^/tests/.*\.py$
+  | ^/main\.py$
+)
+'''
+
+extend-exclude = '''
+/(
+    # directories
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | htmlcov
+  | \.pytest_cache
+)/
+'''

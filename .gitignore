@@ -192,3 +192,13 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# ETL Project Specific Files
+# Generated CSV files
+output/*.csv
+
+# Pytest cache
+.pytest_cache/
+
+# Main ETL process log file
+etl_process.log
