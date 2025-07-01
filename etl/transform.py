@@ -62,23 +62,10 @@ def create_full_address(address: Dict[str, Any]) -> str:
     if not address or not isinstance(address, dict):
         return ""
 
-    components = []
-
-    street = address.get("street", "").strip()
-    suite = address.get("suite", "").strip()
-    city = address.get("city", "").strip()
-    zipcode = address.get("zipcode", "").strip()
-
-    if street:
-        components.append(street)
-    if suite:
-        components.append(suite)
-    if city:
-        components.append(city)
-    if zipcode:
-        components.append(zipcode)
-
-    return ", ".join(components)
+    return ", ".join(
+        value.strip() for key in ["street", "suite", "city", "zipcode"]
+        if (value := address.get(key)) and value.strip()
+    )
 
 
 def remove_duplicates_by_id(
